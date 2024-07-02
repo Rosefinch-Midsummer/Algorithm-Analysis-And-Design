@@ -3,8 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Page not found - 算法分析與設計</title>
-        <base href="/">
+        <title>动态规划 - 算法分析與設計</title>
 
 
         <!-- Custom HTML head -->
@@ -89,7 +88,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="前言.html"><strong aria-hidden="true">1.</strong> 前言</a></li><li class="chapter-item expanded "><a href="算法基础知识.html"><strong aria-hidden="true">2.</strong> 算法基础知识</a></li><li class="chapter-item expanded "><a href="分治策略.html"><strong aria-hidden="true">3.</strong> 分治策略</a></li><li class="chapter-item expanded "><a href="动态规划.html"><strong aria-hidden="true">4.</strong> 动态规划</a></li><li class="chapter-item expanded "><a href="贪心法.html"><strong aria-hidden="true">5.</strong> 贪心法</a></li><li class="chapter-item expanded "><a href="回溯算法.html"><strong aria-hidden="true">6.</strong> 回溯算法</a></li><li class="chapter-item expanded "><a href="分支限界法.html"><strong aria-hidden="true">7.</strong> 分支限界法</a></li><li class="chapter-item expanded "><a href="计算复杂性理论.html"><strong aria-hidden="true">8.</strong> 计算复杂性理论</a></li><li class="chapter-item expanded "><a href="近似算法.html"><strong aria-hidden="true">9.</strong> 近似算法</a></li><li class="chapter-item expanded "><a href="随机算法.html"><strong aria-hidden="true">10.</strong> 随机算法</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="前言.html"><strong aria-hidden="true">1.</strong> 前言</a></li><li class="chapter-item expanded "><a href="算法基础知识.html"><strong aria-hidden="true">2.</strong> 算法基础知识</a></li><li class="chapter-item expanded "><a href="分治策略.html"><strong aria-hidden="true">3.</strong> 分治策略</a></li><li class="chapter-item expanded "><a href="动态规划.html" class="active"><strong aria-hidden="true">4.</strong> 动态规划</a></li><li class="chapter-item expanded "><a href="贪心法.html"><strong aria-hidden="true">5.</strong> 贪心法</a></li><li class="chapter-item expanded "><a href="回溯算法.html"><strong aria-hidden="true">6.</strong> 回溯算法</a></li><li class="chapter-item expanded "><a href="分支限界法.html"><strong aria-hidden="true">7.</strong> 分支限界法</a></li><li class="chapter-item expanded "><a href="计算复杂性理论.html"><strong aria-hidden="true">8.</strong> 计算复杂性理论</a></li><li class="chapter-item expanded "><a href="近似算法.html"><strong aria-hidden="true">9.</strong> 近似算法</a></li><li class="chapter-item expanded "><a href="随机算法.html"><strong aria-hidden="true">10.</strong> 随机算法</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle">
                 <div class="sidebar-resize-indicator"></div>
@@ -174,14 +173,73 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="document-not-found-404"><a class="header" href="#document-not-found-404">Document not found (404)</a></h1>
-<p>This URL is invalid, sorry. Please use the navigation bar or search to continue.</p>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="动态规划"><a class="header" href="#动态规划">动态规划</a></h1>
+<ul>
+<li><a href="#%E6%A6%82%E8%AE%BA">概论</a></li>
+<li><a href="#%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E7%9A%84%E8%AE%BE%E8%AE%A1">动态规划的设计</a></li>
+<li><a href="#%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E7%9A%84%E5%BA%94%E7%94%A8">动态规划的应用</a></li>
+<li><a href="#%E5%AE%9E%E4%BE%8B">实例</a>
+<ul>
+<li><a href="#%E6%B5%81%E6%B0%B4%E7%BA%BF%E4%BD%9C%E4%B8%9A%E8%B0%83%E5%BA%A6">流水线作业调度</a></li>
+<li><a href="#%E7%9F%A9%E9%98%B5%E9%93%BE%E4%B9%98%E6%B3%95%E9%97%AE%E9%A2%98">矩阵链乘法问题</a></li>
+<li><a href="#%E6%9C%80%E9%95%BF%E5%85%AC%E5%85%B1%E5%AD%90%E5%BA%8F%E5%88%97">最长公共子序列</a></li>
+<li><a href="#%E6%9C%80%E4%BC%98%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91">最优二叉搜索树</a></li>
+<li><a href="#%E5%9B%BE%E5%83%8F%E5%8E%8B%E7%BC%A9">图像压缩</a></li>
+<li><a href="#%E5%BA%8F%E5%88%97%E5%AF%B9%E9%BD%90hirschberg%E7%AE%97%E6%B3%95">序列对齐（Hirschberg算法）</a></li>
+<li><a href="#%E5%B8%A6%E6%9D%83%E5%8C%BA%E9%97%B4%E8%B0%83%E5%BA%A6">带权区间调度</a></li>
+<li><a href="#%E6%9C%80%E5%A4%A7%E5%AD%90%E6%AE%B5%E6%95%B0%E7%BB%84%E5%92%8C">最大子段（数组）和</a></li>
+<li><a href="#%E5%88%86%E6%AE%B5%E6%9C%80%E5%B0%8F%E4%BA%8C%E4%B9%98%E6%B3%95">分段最小二乘法</a></li>
+<li><a href="#rna-%E4%BA%8C%E7%BA%A7%E7%BB%93%E6%9E%84">RNA 二级结构</a></li>
+<li><a href="#%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98knapsack">背包问题（knapsack）</a></li>
+</ul>
+</li>
+<li><a href="#%E5%A4%87%E5%BF%98%E5%BD%95%E7%AE%97%E6%B3%95memorization-method">备忘录算法（Memorization method）</a></li>
+</ul>
+<h2 id="概论"><a class="header" href="#概论">概论</a></h2>
+<p>动态规划通常用于求解最优化问题。</p>
+<p>基本要素：（1）最优子结构性质；（2）重叠子问题性质</p>
+<p>动态规划五部曲：（1）明确 dp 数组的含义（2）递推公式（3）初始化（4）遍历顺序（5）打印 dp 数组</p>
+<p>动态规划基本步骤：</p>
+<ol>
+<li>找出最优解的性质，并自上而下刻画其最优解结构特征。</li>
+<li>递归地定义最优值。</li>
+<li>以自底向上的方式计算出最优值。</li>
+<li>根据计算最优值时得到的信息，构造最优解。</li>
+</ol>
+<p>以自底向上的方式：首先找到子问题的最优解，然后根据子问题的最优解找到原问题的最优解。</p>
+<h2 id="动态规划的设计"><a class="header" href="#动态规划的设计">动态规划的设计</a></h2>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost03/img/20240602124530.png" alt="" /></p>
+<h2 id="动态规划的应用"><a class="header" href="#动态规划的应用">动态规划的应用</a></h2>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost03/img/20240602124559.png" alt="" /></p>
+<h2 id="实例"><a class="header" href="#实例">实例</a></h2>
+<h3 id="流水线作业调度"><a class="header" href="#流水线作业调度">流水线作业调度</a></h3>
+<h3 id="矩阵链乘法问题"><a class="header" href="#矩阵链乘法问题">矩阵链乘法问题</a></h3>
+<h3 id="最长公共子序列"><a class="header" href="#最长公共子序列">最长公共子序列</a></h3>
+<p>二维数组<code>dp[i][j]</code>表示nums1<code>[0..i-1]</code>下标（包括<code>i-1</code>）和nums2<code>[0..j-1]</code>下标（包括<code>j-1</code>）的最长公共子序列长度。</p>
+<p>这样表示方便初始化。</p>
+<h3 id="最优二叉搜索树"><a class="header" href="#最优二叉搜索树">最优二叉搜索树</a></h3>
+<h3 id="图像压缩"><a class="header" href="#图像压缩">图像压缩</a></h3>
+<h3 id="序列对齐hirschberg算法"><a class="header" href="#序列对齐hirschberg算法">序列对齐（Hirschberg算法）</a></h3>
+<h3 id="带权区间调度"><a class="header" href="#带权区间调度">带权区间调度</a></h3>
+<h3 id="最大子段数组和"><a class="header" href="#最大子段数组和">最大子段（数组）和</a></h3>
+<h3 id="分段最小二乘法"><a class="header" href="#分段最小二乘法">分段最小二乘法</a></h3>
+<h3 id="rna-二级结构"><a class="header" href="#rna-二级结构">RNA 二级结构</a></h3>
+<h3 id="背包问题knapsack"><a class="header" href="#背包问题knapsack">背包问题（knapsack）</a></h3>
+<h2 id="备忘录算法memorization-method"><a class="header" href="#备忘录算法memorization-method">备忘录算法（Memorization method）</a></h2>
+<p>递归实现，没有使用对角线技巧，需要更多的递归调用</p>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="分治策略.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
 
+                            <a rel="next prefetch" href="贪心法.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
 
                         <div style="clear: both"></div>
                     </nav>
@@ -189,7 +247,13 @@
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="分治策略.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
 
+                    <a rel="next prefetch" href="贪心法.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
             </nav>
 
         </div>

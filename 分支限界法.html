@@ -3,8 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Page not found - 算法分析與設計</title>
-        <base href="/">
+        <title>分支限界法 - 算法分析與設計</title>
 
 
         <!-- Custom HTML head -->
@@ -89,7 +88,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="前言.html"><strong aria-hidden="true">1.</strong> 前言</a></li><li class="chapter-item expanded "><a href="算法基础知识.html"><strong aria-hidden="true">2.</strong> 算法基础知识</a></li><li class="chapter-item expanded "><a href="分治策略.html"><strong aria-hidden="true">3.</strong> 分治策略</a></li><li class="chapter-item expanded "><a href="动态规划.html"><strong aria-hidden="true">4.</strong> 动态规划</a></li><li class="chapter-item expanded "><a href="贪心法.html"><strong aria-hidden="true">5.</strong> 贪心法</a></li><li class="chapter-item expanded "><a href="回溯算法.html"><strong aria-hidden="true">6.</strong> 回溯算法</a></li><li class="chapter-item expanded "><a href="分支限界法.html"><strong aria-hidden="true">7.</strong> 分支限界法</a></li><li class="chapter-item expanded "><a href="计算复杂性理论.html"><strong aria-hidden="true">8.</strong> 计算复杂性理论</a></li><li class="chapter-item expanded "><a href="近似算法.html"><strong aria-hidden="true">9.</strong> 近似算法</a></li><li class="chapter-item expanded "><a href="随机算法.html"><strong aria-hidden="true">10.</strong> 随机算法</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="前言.html"><strong aria-hidden="true">1.</strong> 前言</a></li><li class="chapter-item expanded "><a href="算法基础知识.html"><strong aria-hidden="true">2.</strong> 算法基础知识</a></li><li class="chapter-item expanded "><a href="分治策略.html"><strong aria-hidden="true">3.</strong> 分治策略</a></li><li class="chapter-item expanded "><a href="动态规划.html"><strong aria-hidden="true">4.</strong> 动态规划</a></li><li class="chapter-item expanded "><a href="贪心法.html"><strong aria-hidden="true">5.</strong> 贪心法</a></li><li class="chapter-item expanded "><a href="回溯算法.html"><strong aria-hidden="true">6.</strong> 回溯算法</a></li><li class="chapter-item expanded "><a href="分支限界法.html" class="active"><strong aria-hidden="true">7.</strong> 分支限界法</a></li><li class="chapter-item expanded "><a href="计算复杂性理论.html"><strong aria-hidden="true">8.</strong> 计算复杂性理论</a></li><li class="chapter-item expanded "><a href="近似算法.html"><strong aria-hidden="true">9.</strong> 近似算法</a></li><li class="chapter-item expanded "><a href="随机算法.html"><strong aria-hidden="true">10.</strong> 随机算法</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle">
                 <div class="sidebar-resize-indicator"></div>
@@ -174,14 +173,40 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="document-not-found-404"><a class="header" href="#document-not-found-404">Document not found (404)</a></h1>
-<p>This URL is invalid, sorry. Please use the navigation bar or search to continue.</p>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="分支限界法"><a class="header" href="#分支限界法">分支限界法</a></h1>
+<ul>
+<li><a href="#%E6%A6%82%E5%BF%B5">概念</a></li>
+<li><a href="#%E5%88%86%E6%94%AF%E9%99%90%E7%95%8C%E7%9A%84%E5%BA%94%E7%94%A8">分支限界的应用</a>
+<ul>
+<li><a href="#%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98">背包问题</a></li>
+<li><a href="#%E6%9C%80%E5%A4%A7%E5%9B%A2%E9%97%AE%E9%A2%98">最大团问题</a></li>
+<li><a href="#%E8%B4%A7%E9%83%8E%E9%97%AE%E9%A2%98">货郎问题</a></li>
+<li><a href="#%E5%9C%86%E6%8E%92%E5%88%97%E9%97%AE%E9%A2%98">圆排列问题</a></li>
+<li><a href="#%E8%BF%9E%E7%BB%AD%E9%82%AE%E8%B5%84%E9%97%AE%E9%A2%98">连续邮资问题</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="概念"><a class="header" href="#概念">概念</a></h2>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost03/img/20240602124301.png" alt="" /></p>
+<h2 id="分支限界的应用"><a class="header" href="#分支限界的应用">分支限界的应用</a></h2>
+<h3 id="背包问题"><a class="header" href="#背包问题">背包问题</a></h3>
+<h3 id="最大团问题"><a class="header" href="#最大团问题">最大团问题</a></h3>
+<h3 id="货郎问题"><a class="header" href="#货郎问题">货郎问题</a></h3>
+<h3 id="圆排列问题"><a class="header" href="#圆排列问题">圆排列问题</a></h3>
+<h3 id="连续邮资问题"><a class="header" href="#连续邮资问题">连续邮资问题</a></h3>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="回溯算法.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
 
+                            <a rel="next prefetch" href="计算复杂性理论.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
 
                         <div style="clear: both"></div>
                     </nav>
@@ -189,7 +214,13 @@
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="回溯算法.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
 
+                    <a rel="next prefetch" href="计算复杂性理论.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
             </nav>
 
         </div>

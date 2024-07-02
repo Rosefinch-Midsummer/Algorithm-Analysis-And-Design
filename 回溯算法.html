@@ -1,0 +1,319 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>回溯算法 - 算法分析與設計</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body class="sidebar-visible no-js">
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('light')
+            html.classList.add(theme);
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var body = document.querySelector('body');
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="前言.html"><strong aria-hidden="true">1.</strong> 前言</a></li><li class="chapter-item expanded "><a href="算法基础知识.html"><strong aria-hidden="true">2.</strong> 算法基础知识</a></li><li class="chapter-item expanded "><a href="分治策略.html"><strong aria-hidden="true">3.</strong> 分治策略</a></li><li class="chapter-item expanded "><a href="动态规划.html"><strong aria-hidden="true">4.</strong> 动态规划</a></li><li class="chapter-item expanded "><a href="贪心法.html"><strong aria-hidden="true">5.</strong> 贪心法</a></li><li class="chapter-item expanded "><a href="回溯算法.html" class="active"><strong aria-hidden="true">6.</strong> 回溯算法</a></li><li class="chapter-item expanded "><a href="分支限界法.html"><strong aria-hidden="true">7.</strong> 分支限界法</a></li><li class="chapter-item expanded "><a href="计算复杂性理论.html"><strong aria-hidden="true">8.</strong> 计算复杂性理论</a></li><li class="chapter-item expanded "><a href="近似算法.html"><strong aria-hidden="true">9.</strong> 近似算法</a></li><li class="chapter-item expanded "><a href="随机算法.html"><strong aria-hidden="true">10.</strong> 随机算法</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">算法分析與設計</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="回溯算法"><a class="header" href="#回溯算法">回溯算法</a></h1>
+<ul>
+<li><a href="#%E6%A6%82%E8%AE%BA">概论</a></li>
+<li><a href="#%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95%E7%9A%84%E8%AE%BE%E8%AE%A1">回溯算法的设计</a></li>
+<li><a href="#%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95%E6%A8%A1%E6%9D%BF">回溯算法模板</a></li>
+<li><a href="#%E8%A7%A3%E7%A9%BA%E9%97%B4%E6%A0%91">解空间树</a></li>
+<li><a href="#%E5%89%AA%E6%9E%9Dpruning%E6%93%8D%E4%BD%9C">剪枝（Pruning）操作</a></li>
+<li><a href="#%E5%9B%9E%E6%BA%AF%E6%B3%95%E7%9A%84%E5%85%B8%E5%9E%8B%E5%BA%94%E7%94%A8">回溯法的典型应用</a>
+<ul>
+<li><a href="#%E9%9B%86%E8%A3%85%E7%AE%B1%E9%97%AE%E9%A2%98container-loading-problem">集装箱问题（Container Loading Problem）</a></li>
+<li><a href="#%E5%AD%90%E9%9B%86%E5%92%8Csum-of-subsets">子集和（Sum of Subsets）</a></li>
+<li><a href="#01-knapsack-problem">0/1 Knapsack Problem</a></li>
+<li><a href="#%E6%A3%8B%E7%9B%98%E9%97%AE%E9%A2%98%E4%B9%8B-n-queens-problem">棋盘问题之 N-Queens Problem</a></li>
+<li><a href="#%E6%A3%8B%E7%9B%98%E9%97%AE%E9%A2%98%E4%B9%8B%E8%A7%A3%E6%95%B0%E7%8B%AC">棋盘问题之解数独</a></li>
+<li><a href="#%E7%BB%84%E5%90%88%E9%97%AE%E9%A2%98%E4%B9%8B%E5%88%87%E5%89%B2%E5%AD%90%E4%B8%B2">组合问题之切割子串</a></li>
+<li><a href="#%E6%8E%92%E5%88%97%E9%97%AE%E9%A2%98%E4%B9%8B%E5%85%A8%E6%8E%92%E5%88%97">排列问题之全排列</a></li>
+<li><a href="#%E6%9C%80%E5%A4%A7%E5%9B%A2%E9%97%AE%E9%A2%98">最大团问题</a></li>
+<li><a href="#%E6%97%85%E8%A1%8C%E5%95%86%E9%97%AE%E9%A2%98">旅行商问题</a></li>
+<li><a href="#%E5%9B%BE%E7%9A%84-m-%E7%9D%80%E8%89%B2%E9%97%AE%E9%A2%98">图的 m 着色问题</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="概论"><a class="header" href="#概论">概论</a></h2>
+<p><strong>回溯法（Backtracking）的思想：</strong> 能进则进，不进则换，不换则退。</p>
+<p>回溯法也可以叫做回溯搜索法，它是一种搜索的方式。</p>
+<p>回溯是递归的副产品，只要有递归就会有回溯。</p>
+<p><strong>因为回溯的本质是穷举，穷举所有可能，然后选出我们想要的答案</strong>，如果想让回溯法高效一些，可以加一些剪枝的操作，但也改不了回溯法就是穷举的本质。</p>
+<p><strong>回溯法解决的问题都可以抽象为树形结构</strong>，因为回溯法解决的都是在集合中递归查找子集，<strong>集合的大小就构成了树的宽度，递归的深度就构成了树的深度</strong>。</p>
+<p>递归就要有终止条件，所以必然是一棵高度有限的树（N叉树）。</p>
+<p><strong>回溯算法的框架：</strong></p>
+<p>以DFS的方式进行搜索，在搜索的过程中用剪枝条件（限界函数）避免无效搜索。约束函数，在扩展结点处剪去得不到可行解的子树；限界函数：在扩展结点处剪去得不到最优解的子树。</p>
+<p><strong>回溯算法求解问题的一般步骤：</strong></p>
+<p>1、 针对所给问题，定义问题的解空间，它至少包含问题的一个（最优）解。</p>
+<p>2 、确定易于搜索的解空间结构,使得能用回溯法方便地搜索整个解空间 。</p>
+<p>3 、以深度优先的方式搜索解空间，并且在搜索过程中用剪枝函数避免无效搜索。</p>
+<p>常用剪枝函数：</p>
+<p>用约束函数在扩展结点处剪去不满足约束的子树；</p>
+<p>用限界函数剪去得不到最优解的子树。</p>
+<p>回溯法，一般可以解决如下几种问题：</p>
+<ul>
+<li>组合问题：N个数里面按一定规则找出k个数的集合</li>
+<li>切割问题：一个字符串按一定规则有几种切割方式</li>
+<li>子集问题：一个N个数的集合里有多少符合条件的子集</li>
+<li>排列问题：N个数按一定规则全排列，有几种排列方式</li>
+<li>棋盘问题：N皇后，解数独等等</li>
+</ul>
+<h2 id="回溯算法的设计"><a class="header" href="#回溯算法的设计">回溯算法的设计</a></h2>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost03/img/20240602124212.png" alt="" /></p>
+<h2 id="回溯算法模板"><a class="header" href="#回溯算法模板">回溯算法模板</a></h2>
+<p>回溯算法模板框架如下：</p>
+<pre><code class="language-cpp">void backtracking(参数) {
+    if (终止条件) {
+        存放结果;
+        return;
+    }
+
+    for (选择：本层集合中元素（树中节点孩子的数量就是集合的大小）) {
+        处理节点;
+        backtracking(路径，选择列表); // 递归
+        回溯，撤销处理结果
+    }
+}
+</code></pre>
+<p>Although backtracking seems very efficient. The time complexity for this algorithm is O(n2^n).</p>
+<p>2^n is the time for searching the solution space.</p>
+<p>n is the time to store the best solution.</p>
+<h2 id="解空间树"><a class="header" href="#解空间树">解空间树</a></h2>
+<p><strong>子集树、满m叉树、排列树区别：</strong></p>
+<p>子集树：从n个元素的集合S中找到满足某种性质的子集时，相应的解空间树就成为了子集树（典型问题：01背包问题）</p>
+<p>满m叉树：所给问题中每一个元素均有m中选择，要求确定其中的一种选择，使得对这n个元素的选择结果组成的向量满足某种性质（经典问题：图的m着色问题）</p>
+<p>排列树：从n个元素的排列树中找出满足某种性质的一个排列的时候，相应的解空间树称为排列树（经典问题：TSP问题，n-queens 问题）</p>
+<h2 id="剪枝pruning操作"><a class="header" href="#剪枝pruning操作">剪枝（Pruning）操作</a></h2>
+<p>在回溯过程中，我们用一个约束函数<code>C(i)</code>（constraint function）和一个限界函数<code>B(i)</code>（bounding function）剪掉无效的分支，从而专注于搜索最有希望的分支。</p>
+<p>类似dfs在叶子节点收获结果，回溯算法可以通过剪枝（prune）提前中止向下搜索的过程。</p>
+<p>约束函数<code>C(i)</code>（constraint function）：检查当前解的可行性</p>
+<p>Constraint function is to check the feasibility of the current solution.</p>
+<p>限界函数<code>B(i)</code>（bounding function）</p>
+<p>Bounding function is for optimization problem.</p>
+<h2 id="回溯法的典型应用"><a class="header" href="#回溯法的典型应用">回溯法的典型应用</a></h2>
+<h3 id="集装箱问题container-loading-problem"><a class="header" href="#集装箱问题container-loading-problem">集装箱问题（Container Loading Problem）</a></h3>
+<p>Container Loading problem is to load as many containers as is possible without sinking the ship.</p>
+<h3 id="子集和sum-of-subsets"><a class="header" href="#子集和sum-of-subsets">子集和（Sum of Subsets）</a></h3>
+<h3 id="01-knapsack-problem"><a class="header" href="#01-knapsack-problem">0/1 Knapsack Problem</a></h3>
+<p>First, rank the item by their value per unit weight.</p>
+<h3 id="棋盘问题之-n-queens-problem"><a class="header" href="#棋盘问题之-n-queens-problem">棋盘问题之 N-Queens Problem</a></h3>
+<h3 id="棋盘问题之解数独"><a class="header" href="#棋盘问题之解数独">棋盘问题之解数独</a></h3>
+<h3 id="组合问题之切割子串"><a class="header" href="#组合问题之切割子串">组合问题之切割子串</a></h3>
+<h3 id="排列问题之全排列"><a class="header" href="#排列问题之全排列">排列问题之全排列</a></h3>
+<h3 id="最大团问题"><a class="header" href="#最大团问题">最大团问题</a></h3>
+<h3 id="旅行商问题"><a class="header" href="#旅行商问题">旅行商问题</a></h3>
+<h3 id="图的-m-着色问题"><a class="header" href="#图的-m-着色问题">图的 m 着色问题</a></h3>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="贪心法.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="分支限界法.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="贪心法.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="分支限界法.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>

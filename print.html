@@ -89,7 +89,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="chapter_1.html"><strong aria-hidden="true">1.</strong> Chapter 1</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="前言.html"><strong aria-hidden="true">1.</strong> 前言</a></li><li class="chapter-item expanded "><a href="算法基础知识.html"><strong aria-hidden="true">2.</strong> 算法基础知识</a></li><li class="chapter-item expanded "><a href="分治策略.html"><strong aria-hidden="true">3.</strong> 分治策略</a></li><li class="chapter-item expanded "><a href="动态规划.html"><strong aria-hidden="true">4.</strong> 动态规划</a></li><li class="chapter-item expanded "><a href="贪心法.html"><strong aria-hidden="true">5.</strong> 贪心法</a></li><li class="chapter-item expanded "><a href="回溯算法.html"><strong aria-hidden="true">6.</strong> 回溯算法</a></li><li class="chapter-item expanded "><a href="分支限界法.html"><strong aria-hidden="true">7.</strong> 分支限界法</a></li><li class="chapter-item expanded "><a href="计算复杂性理论.html"><strong aria-hidden="true">8.</strong> 计算复杂性理论</a></li><li class="chapter-item expanded "><a href="近似算法.html"><strong aria-hidden="true">9.</strong> 近似算法</a></li><li class="chapter-item expanded "><a href="随机算法.html"><strong aria-hidden="true">10.</strong> 随机算法</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle">
                 <div class="sidebar-resize-indicator"></div>
@@ -175,7 +175,532 @@
                 <div id="content" class="content">
                     <main>
                         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
-<h1 id="chapter-1"><a class="header" href="#chapter-1">Chapter 1</a></h1>
+<h1 id="前言"><a class="header" href="#前言">前言</a></h1>
+<p>本仓库是对《算法设计与分析》课程内容的记录，主要内容来自《算法设计与分析》第三版（屈婉玲等著）。</p>
+<p>把《算法设计与分析》的内容加入《数据结构》仓库中会使得《数据结构》仓库异常臃肿，这里新开一个仓库详细记录《算法设计与分析》相关的内容。</p>
+<p>思维导图来源：</p>
+<p><a href="https://blog.csdn.net/weixin_43959833/article/details/115266247">最值得收藏的 算法分析与设计 全部知识点思维导图整理(北大慕课课程)</a></p>
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="算法基础知识"><a class="header" href="#算法基础知识">算法基础知识</a></h1>
+<ul>
+<li><a href="%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86.html#%E7%AE%97%E6%B3%95%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5">算法的基本概念</a>
+<ul>
+<li><a href="%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86.html#%E6%B8%90%E8%BF%91%E5%88%86%E6%9E%90-asymptotics">渐近分析 Asymptotics</a></li>
+<li><a href="%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86.html#%E6%95%B0%E5%AD%A6%E5%BD%92%E7%BA%B3%E6%B3%95%E5%92%8C%E6%96%AF%E7%89%B9%E6%9E%97%E5%85%AC%E5%BC%8F">数学归纳法和斯特林公式</a></li>
+</ul>
+</li>
+<li><a href="%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86.html#%E7%AE%97%E6%B3%95%E7%9A%84%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80">算法的数学基础</a>
+<ul>
+<li><a href="%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86.html#master-%E5%AE%9A%E7%90%86">Master 定理</a></li>
+<li><a href="%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86.html#%E9%80%92%E5%BD%92%E6%A0%91">递归树</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="算法的基本概念"><a class="header" href="#算法的基本概念">算法的基本概念</a></h2>
+<p>算法定义：算法是指解决问题的一种方法或一个过程。</p>
+<p>基本特性：有穷性、确定性、正确性、输入输出</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost03/img/20240602124838.png" alt="" /></p>
+<h3 id="渐近分析-asymptotics"><a class="header" href="#渐近分析-asymptotics">渐近分析 Asymptotics</a></h3>
+<p>函数的渐近的界</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost03/img/20240702155009.png" alt="" /></p>
+<p>渐近分析 Asymptotics</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost02/img/20240301091002.png" alt="" /></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost02/img/20240301091903.png" alt="" /></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost02/img/20240301092853.png" alt="" /></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost02/img/20240301093141.png" alt="" /></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost02/img/20240301093426.png" alt="" /></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost02/img/20240301093723.png" alt="" /></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost02/img/20240301093743.png" alt="" /></p>
+<p>这里应该是 <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">∈</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">ω</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mclose">)</span></span></span></span></p>
+<p>little 符号比 big 符号更精确。</p>
+<h3 id="数学归纳法和斯特林公式"><a class="header" href="#数学归纳法和斯特林公式">数学归纳法和斯特林公式</a></h3>
+<p>良序原理=&gt;归纳法</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost02/img/20240306085114.png" alt="" /></p>
+<p>斯特林公式</p>
+<p><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal">n</span><span class="mclose">!</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">≈</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1.2572em;vertical-align:-0.35em;"></span><span class="mord sqrt"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.9072em;"><span class="svg-align" style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord" style="padding-left:0.833em;"><span class="mord">2</span><span class="mord mathnormal">πn</span></span></span><span style="top:-2.8672em;"><span class="pstrut" style="height:3em;"></span><span class="hide-tail" style="min-width:0.853em;height:1.08em;"><svg xmlns="http://www.w3.org/2000/svg" width='400em' height='1.08em' viewBox='0 0 400000 1080' preserveAspectRatio='xMinYMin slice'><path d='M95,702 c-2.7,0,-7.17,-2.7,-13.5,-8c-5.8,-5.3,-9.5,-10,-9.5,-14 c0,-2,0.3,-3.3,1,-4c1.3,-2.7,23.83,-20.7,67.5,-54 c44.2,-33.3,65.8,-50.3,66.5,-51c1.3,-1.3,3,-2,5,-2c4.7,0,8.7,3.3,12,10 s173,378,173,378c0.7,0,35.3,-71,104,-213c68.7,-142,137.5,-285,206.5,-429 c69,-144,104.5,-217.7,106.5,-221 l0 -0 c5.3,-9.3,12,-14,20,-14 H400000v40H845.2724 s-225.272,467,-225.272,467s-235,486,-235,486c-2.7,4.7,-9,7,-19,7 c-6,0,-10,-1,-12,-3s-194,-422,-194,-422s-65,47,-65,47z M834 80h400000v40h-400000z'/></svg></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.1328em;"><span></span></span></span></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="minner"><span class="minner"><span class="mopen delimcenter" style="top:0em;"><span class="delimsizing size1">(</span></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.6954em;"><span style="top:-2.655em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">e</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">n</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mclose delimcenter" style="top:0em;"><span class="delimsizing size1">)</span></span></span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.9043em;"><span style="top:-3.3029em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">n</span></span></span></span></span></span></span></span></span></span></span></p>
+<p><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.6901em;vertical-align:-0.81em;"></span><span class="mop"><span class="mop">lim</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2583em;"><span style="top:-2.55em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">n</span><span class="mrel mtight">→</span><span class="mord mtight">+</span><span class="mord mtight">∞</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2083em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8801em;"><span style="top:-2.4925em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord sqrt mtight"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.9128em;"><span class="svg-align" style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord mtight" style="padding-left:0.833em;"><span class="mord mtight">2</span><span class="mord mathnormal mtight">πn</span></span></span><span style="top:-2.8728em;"><span class="pstrut" style="height:3em;"></span><span class="hide-tail mtight" style="min-width:0.853em;height:1.08em;"><svg xmlns="http://www.w3.org/2000/svg" width='400em' height='1.08em' viewBox='0 0 400000 1080' preserveAspectRatio='xMinYMin slice'><path d='M95,702 c-2.7,0,-7.17,-2.7,-13.5,-8c-5.8,-5.3,-9.5,-10,-9.5,-14 c0,-2,0.3,-3.3,1,-4c1.3,-2.7,23.83,-20.7,67.5,-54 c44.2,-33.3,65.8,-50.3,66.5,-51c1.3,-1.3,3,-2,5,-2c4.7,0,8.7,3.3,12,10 s173,378,173,378c0.7,0,35.3,-71,104,-213c68.7,-142,137.5,-285,206.5,-429 c69,-144,104.5,-217.7,106.5,-221 l0 -0 c5.3,-9.3,12,-14,20,-14 H400000v40H845.2724 s-225.272,467,-225.272,467s-235,486,-235,486c-2.7,4.7,-9,7,-19,7 c-6,0,-10,-1,-12,-3s-194,-422,-194,-422s-65,47,-65,47z M834 80h400000v40h-400000z'/></svg></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.1272em;"><span></span></span></span></span></span><span class="minner mtight"><span class="minner mtight"><span class="mopen sizing reset-size3 size6 mtight delimcenter" style="top:0.075em;"><span class="mtight">(</span></span><span class="mord mtight"><span class="mopen nulldelimiter sizing reset-size3 size6"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.6915em;"><span style="top:-2.656em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">e</span></span></span></span><span style="top:-3.2255em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line mtight" style="border-bottom-width:0.049em;"></span></span><span style="top:-3.384em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">n</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.344em;"><span></span></span></span></span></span><span class="mclose nulldelimiter sizing reset-size3 size6"></span></span><span class="mclose sizing reset-size3 size6 mtight delimcenter" style="top:0.075em;"><span class="mtight">)</span></span></span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.9511em;"><span style="top:-3.1436em;margin-right:0.0714em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mathnormal mtight">n</span></span></span></span></span></span></span></span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">n</span><span class="mclose mtight">!</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.81em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span></span></span></span></p>
+<p>调和级数和二叉树</p>
+<p>幂级数   <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.1488em;vertical-align:-0.2997em;"></span><span class="mop"><span class="mop op-symbol small-op" style="position:relative;top:0em;">∑</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.162em;"><span style="top:-2.4003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">i</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2997em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal">i</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8491em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.03148em;">k</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1.0991em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal">n</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8491em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.03148em;">k</span><span class="mbin mtight">+</span><span class="mord mtight">1</span></span></span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span></p>
+<p>主定理和等比级数</p>
+<p>错位相减法</p>
+<p>算法平均时间复杂度</p>
+<h2 id="算法的数学基础"><a class="header" href="#算法的数学基础">算法的数学基础</a></h2>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost03/img/20240602124819.png" alt="" /></p>
+<h3 id="master-定理"><a class="header" href="#master-定理">Master 定理</a></h3>
+<p><a href="https://www.luogu.com/article/awubkrso"># 时空复杂度分析及master定理</a></p>
+<p><img src="https://pic3.zhimg.com/80/v2-b950c480b2cb9810d1e6bab75ae1916a_1440w.webp" alt="" /></p>
+<ol>
+<li><a href="https://link.zhihu.com/?target=https%3A//blog.csdn.net/qq_41739364/article/details/101224786">https://blog.csdn.net/qq_41739364/article/details/101224786</a></li>
+<li><a href="https://link.zhihu.com/?target=http%3A//people.csail.mit.edu/thies/6.046-web/master.pdf">http://people.csail.mit.edu/thies/6.046-web/master.pdf</a></li>
+</ol>
+<p>下面这篇文章介绍的比较详细。</p>
+<p><a href="https://www.luogu.com/article/awubkrso">时空复杂度分析及master定理</a></p>
+<p>master 定理的证明又长又臭，我也不会证，有兴趣的同学可以看<a href="http://www.doc88.com/p-9761826142176.html">这篇文章</a>。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost02/img/20240306105201.png" alt="" /></p>
+<p>注释：这里的最常见的那个符号是 <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord">Θ</span></span></span></span>，不是 <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span></span></span></span>，最后一点写法可能有问题。</p>
+<p>推荐下面的视频：</p>
+<p>油管视频链接</p>
+<p><a href="https://www.youtube.com/watch?v=OynWkEj0S-s">2.4.1 Masters Theorem in Algorithms for Dividing Function</a></p>
+<p>这位印度老师是 Udemy 的教师，评论中好评如潮。本人专门看了下屈婉玲《算法设计与分析》发现书中的这块内容也很老套，很难理解。</p>
+<p>B站视频链接</p>
+<p><a href="https://www.bilibili.com/video/BV1QC4y1j7SN">Master Theorem in Algorithms for Dividing Functions - Abdul Bari 主定理 递推式求时间复杂度</a></p>
+<h3 id="递归树"><a class="header" href="#递归树">递归树</a></h3>
+<p>首先将复杂度的递归式展开为树的形式；之后，计算树每层的复杂度；最后，将所有层的复杂度相加，得到T(n)的复杂度。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost02/img/20240324105456.png" alt="" /></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost02/img/20240324111821.png" alt="" /></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost02/img/20240324111854.png" alt="" /></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost02/img/20240324111919.png" alt="" /></p>
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="分治策略"><a class="header" href="#分治策略">分治策略</a></h1>
+<ul>
+<li><a href="%E5%88%86%E6%B2%BB%E7%AD%96%E7%95%A5.html#%E5%88%86%E6%B2%BB%E7%9A%84%E8%AE%BE%E8%AE%A1%E6%80%9D%E6%83%B3">分治的设计思想</a></li>
+<li><a href="%E5%88%86%E6%B2%BB%E7%AD%96%E7%95%A5.html#%E5%85%B8%E5%9E%8B%E7%9A%84%E5%88%86%E6%B2%BB%E7%AE%97%E6%B3%95">典型的分治算法</a></li>
+<li><a href="%E5%88%86%E6%B2%BB%E7%AD%96%E7%95%A5.html#%E9%80%89%E6%8B%A9%E9%97%AE%E9%A2%98">选择问题</a>
+<ul>
+<li><a href="%E5%88%86%E6%B2%BB%E7%AD%96%E7%95%A5.html#%E9%80%89%E6%9C%80%E5%A4%A7">选最大</a></li>
+<li><a href="%E5%88%86%E6%B2%BB%E7%AD%96%E7%95%A5.html#%E9%80%89%E6%9C%80%E5%B0%8F">选最小</a></li>
+<li><a href="%E5%88%86%E6%B2%BB%E7%AD%96%E7%95%A5.html#%E9%80%89%E6%9C%80%E5%A4%A7%E6%9C%80%E5%B0%8F">选最大最小</a></li>
+<li><a href="%E5%88%86%E6%B2%BB%E7%AD%96%E7%95%A5.html#%E9%80%89%E7%AC%AC%E4%BA%8C%E5%A4%A7">选第二大</a></li>
+<li><a href="%E5%88%86%E6%B2%BB%E7%AD%96%E7%95%A5.html#%E9%80%89%E7%AC%AC-k-%E5%B0%8F">选第 k 小</a></li>
+</ul>
+</li>
+<li><a href="%E5%88%86%E6%B2%BB%E7%AD%96%E7%95%A5.html#%E5%8D%B7%E7%A7%AF%E8%AE%A1%E7%AE%97%E5%92%8C-fft-%E7%AE%97%E6%B3%95">卷积计算和 FFT 算法</a></li>
+<li><a href="%E5%88%86%E6%B2%BB%E7%AD%96%E7%95%A5.html#%E5%B9%B3%E9%9D%A2%E7%82%B9%E9%9B%86%E7%9A%84%E5%87%B8%E5%8C%85">平面点集的凸包</a></li>
+</ul>
+<h2 id="分治的设计思想"><a class="header" href="#分治的设计思想">分治的设计思想</a></h2>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost03/img/20240602124752.png" alt="" /></p>
+<p>改进分治算法的途经：</p>
+<ul>
+<li>通过代数变换减少子问题个数</li>
+<li>利用预处理减少递归内部的计算量</li>
+</ul>
+<h2 id="典型的分治算法"><a class="header" href="#典型的分治算法">典型的分治算法</a></h2>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost03/img/20240602124738.png" alt="" /></p>
+<h2 id="选择问题"><a class="header" href="#选择问题">选择问题</a></h2>
+<h3 id="选最大"><a class="header" href="#选最大">选最大</a></h3>
+<h3 id="选最小"><a class="header" href="#选最小">选最小</a></h3>
+<h3 id="选最大最小"><a class="header" href="#选最大最小">选最大最小</a></h3>
+<h3 id="选第二大"><a class="header" href="#选第二大">选第二大</a></h3>
+<h3 id="选第-k-小"><a class="header" href="#选第-k-小">选第 k 小</a></h3>
+<p>求第 k 大的元素   最好：<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.0358em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">K</span><span class="mord mathnormal" style="margin-right:0.01968em;">l</span><span class="mord mathnormal">o</span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8413em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.07153em;">K</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8141em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07153em;">K</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span></p>
+<p>高度之和小于等于 n - 1</p>
+<p>证明：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost02/img/20240310095639.png" alt="" /></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost02/img/20240329115609.png" alt="" /></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost02/img/20240329115651.png" alt="" /></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost02/img/20240329115716.png" alt="" /></p>
+<p>讨论分组时为什么5个元素一组，3个一组或7个一组行不行？</p>
+<p>分析：递归调用</p>
+<p>1.求<code>m*</code>的工作量与 <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">∣</span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span><span class="mord">∣</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">n</span><span class="mord">/</span><span class="mord mathnormal">t</span></span></span></span> 相关，t 为每组元素数，t 大，<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">∣</span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span><span class="mord">∣</span></span></span></span>  小</p>
+<p>2.归约后子问题大小与分组元素数 t 有关, t 大，子问题规模大</p>
+<p>关键：</p>
+<p><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">∣</span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span><span class="mord">∣</span></span></span></span> 与归约后子问题规模之和小于 n，递归树每行的工作量构成公比小于 1 的等比级数，算法复杂度才是<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mclose">)</span></span></span></span></p>
+<p>选第k小算法的时间分析</p>
+<ul>
+<li>递推方程</li>
+<li>分组时每组元素数的多少对时间复杂度的影响</li>
+</ul>
+<p>3分组不行，5分组可以，7分组也行</p>
+<h2 id="卷积计算和-fft-算法"><a class="header" href="#卷积计算和-fft-算法">卷积计算和 FFT 算法</a></h2>
+<h2 id="平面点集的凸包"><a class="header" href="#平面点集的凸包">平面点集的凸包</a></h2>
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="动态规划"><a class="header" href="#动态规划">动态规划</a></h1>
+<ul>
+<li><a href="%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92.html#%E6%A6%82%E8%AE%BA">概论</a></li>
+<li><a href="%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92.html#%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E7%9A%84%E8%AE%BE%E8%AE%A1">动态规划的设计</a></li>
+<li><a href="%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92.html#%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E7%9A%84%E5%BA%94%E7%94%A8">动态规划的应用</a></li>
+<li><a href="%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92.html#%E5%AE%9E%E4%BE%8B">实例</a>
+<ul>
+<li><a href="%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92.html#%E6%B5%81%E6%B0%B4%E7%BA%BF%E4%BD%9C%E4%B8%9A%E8%B0%83%E5%BA%A6">流水线作业调度</a></li>
+<li><a href="%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92.html#%E7%9F%A9%E9%98%B5%E9%93%BE%E4%B9%98%E6%B3%95%E9%97%AE%E9%A2%98">矩阵链乘法问题</a></li>
+<li><a href="%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92.html#%E6%9C%80%E9%95%BF%E5%85%AC%E5%85%B1%E5%AD%90%E5%BA%8F%E5%88%97">最长公共子序列</a></li>
+<li><a href="%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92.html#%E6%9C%80%E4%BC%98%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91">最优二叉搜索树</a></li>
+<li><a href="%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92.html#%E5%9B%BE%E5%83%8F%E5%8E%8B%E7%BC%A9">图像压缩</a></li>
+<li><a href="%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92.html#%E5%BA%8F%E5%88%97%E5%AF%B9%E9%BD%90hirschberg%E7%AE%97%E6%B3%95">序列对齐（Hirschberg算法）</a></li>
+<li><a href="%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92.html#%E5%B8%A6%E6%9D%83%E5%8C%BA%E9%97%B4%E8%B0%83%E5%BA%A6">带权区间调度</a></li>
+<li><a href="%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92.html#%E6%9C%80%E5%A4%A7%E5%AD%90%E6%AE%B5%E6%95%B0%E7%BB%84%E5%92%8C">最大子段（数组）和</a></li>
+<li><a href="%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92.html#%E5%88%86%E6%AE%B5%E6%9C%80%E5%B0%8F%E4%BA%8C%E4%B9%98%E6%B3%95">分段最小二乘法</a></li>
+<li><a href="%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92.html#rna-%E4%BA%8C%E7%BA%A7%E7%BB%93%E6%9E%84">RNA 二级结构</a></li>
+<li><a href="%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92.html#%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98knapsack">背包问题（knapsack）</a></li>
+</ul>
+</li>
+<li><a href="%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92.html#%E5%A4%87%E5%BF%98%E5%BD%95%E7%AE%97%E6%B3%95memorization-method">备忘录算法（Memorization method）</a></li>
+</ul>
+<h2 id="概论"><a class="header" href="#概论">概论</a></h2>
+<p>动态规划通常用于求解最优化问题。</p>
+<p>基本要素：（1）最优子结构性质；（2）重叠子问题性质</p>
+<p>动态规划五部曲：（1）明确 dp 数组的含义（2）递推公式（3）初始化（4）遍历顺序（5）打印 dp 数组</p>
+<p>动态规划基本步骤：</p>
+<ol>
+<li>找出最优解的性质，并自上而下刻画其最优解结构特征。</li>
+<li>递归地定义最优值。</li>
+<li>以自底向上的方式计算出最优值。</li>
+<li>根据计算最优值时得到的信息，构造最优解。</li>
+</ol>
+<p>以自底向上的方式：首先找到子问题的最优解，然后根据子问题的最优解找到原问题的最优解。</p>
+<h2 id="动态规划的设计"><a class="header" href="#动态规划的设计">动态规划的设计</a></h2>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost03/img/20240602124530.png" alt="" /></p>
+<h2 id="动态规划的应用"><a class="header" href="#动态规划的应用">动态规划的应用</a></h2>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost03/img/20240602124559.png" alt="" /></p>
+<h2 id="实例"><a class="header" href="#实例">实例</a></h2>
+<h3 id="流水线作业调度"><a class="header" href="#流水线作业调度">流水线作业调度</a></h3>
+<h3 id="矩阵链乘法问题"><a class="header" href="#矩阵链乘法问题">矩阵链乘法问题</a></h3>
+<h3 id="最长公共子序列"><a class="header" href="#最长公共子序列">最长公共子序列</a></h3>
+<p>二维数组<code>dp[i][j]</code>表示nums1<code>[0..i-1]</code>下标（包括<code>i-1</code>）和nums2<code>[0..j-1]</code>下标（包括<code>j-1</code>）的最长公共子序列长度。</p>
+<p>这样表示方便初始化。</p>
+<h3 id="最优二叉搜索树"><a class="header" href="#最优二叉搜索树">最优二叉搜索树</a></h3>
+<h3 id="图像压缩"><a class="header" href="#图像压缩">图像压缩</a></h3>
+<h3 id="序列对齐hirschberg算法"><a class="header" href="#序列对齐hirschberg算法">序列对齐（Hirschberg算法）</a></h3>
+<h3 id="带权区间调度"><a class="header" href="#带权区间调度">带权区间调度</a></h3>
+<h3 id="最大子段数组和"><a class="header" href="#最大子段数组和">最大子段（数组）和</a></h3>
+<h3 id="分段最小二乘法"><a class="header" href="#分段最小二乘法">分段最小二乘法</a></h3>
+<h3 id="rna-二级结构"><a class="header" href="#rna-二级结构">RNA 二级结构</a></h3>
+<h3 id="背包问题knapsack"><a class="header" href="#背包问题knapsack">背包问题（knapsack）</a></h3>
+<h2 id="备忘录算法memorization-method"><a class="header" href="#备忘录算法memorization-method">备忘录算法（Memorization method）</a></h2>
+<p>递归实现，没有使用对角线技巧，需要更多的递归调用</p>
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="贪心法"><a class="header" href="#贪心法">贪心法</a></h1>
+<ul>
+<li><a href="%E8%B4%AA%E5%BF%83%E6%B3%95.html#%E7%81%B5%E9%AD%82%E6%8B%B7%E9%97%AE">灵魂拷问</a></li>
+<li><a href="%E8%B4%AA%E5%BF%83%E6%B3%95.html#%E8%B4%AA%E5%BF%83%E6%A6%82%E5%BF%B5">贪心概念</a></li>
+<li><a href="%E8%B4%AA%E5%BF%83%E6%B3%95.html#%E8%B4%AA%E5%BF%83%E6%B3%95%E7%9A%84%E8%AE%BE%E8%AE%A1">贪心法的设计</a></li>
+<li><a href="%E8%B4%AA%E5%BF%83%E6%B3%95.html#%E8%B4%AA%E5%BF%83%E4%B8%80%E8%88%AC%E8%A7%A3%E9%A2%98%E6%AD%A5%E9%AA%A4">贪心一般解题步骤</a></li>
+<li><a href="%E8%B4%AA%E5%BF%83%E6%B3%95.html#%E9%87%8D%E8%A6%81%E7%9A%84%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95">重要的贪心算法</a>
+<ul>
+<li><a href="%E8%B4%AA%E5%BF%83%E6%B3%95.html#%E7%A1%AC%E5%B8%81%E6%89%BE%E9%9B%B6%E9%97%AE%E9%A2%98">硬币找零问题</a></li>
+<li><a href="%E8%B4%AA%E5%BF%83%E6%B3%95.html#%E6%B4%BB%E5%8A%A8%E5%AE%89%E6%8E%92%E9%97%AE%E9%A2%98">活动安排问题</a></li>
+<li><a href="%E8%B4%AA%E5%BF%83%E6%B3%95.html#%E5%8C%BA%E9%97%B4%E5%88%92%E5%88%86%E9%97%AE%E9%A2%98">区间划分问题</a></li>
+<li><a href="%E8%B4%AA%E5%BF%83%E6%B3%95.html#%E5%88%86%E6%95%B0%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98">分数背包问题</a></li>
+<li><a href="%E8%B4%AA%E5%BF%83%E6%B3%95.html#%E5%93%88%E5%A4%AB%E6%9B%BC%E7%BC%96%E7%A0%81">哈夫曼编码</a></li>
+<li><a href="%E8%B4%AA%E5%BF%83%E6%B3%95.html#%E5%8D%95%E6%BA%90%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84">单源最短路径</a></li>
+<li><a href="%E8%B4%AA%E5%BF%83%E6%B3%95.html#%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91">最小生成树</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="灵魂拷问"><a class="header" href="#灵魂拷问">灵魂拷问</a></h2>
+<p>什么是贪心算法（Greedy Algorithm）？</p>
+<p>什么是贪心选择性质？</p>
+<p>如何证明贪心算法的正确性？</p>
+<p>动态规划和贪心算法的区别是什么？</p>
+<h2 id="贪心概念"><a class="header" href="#贪心概念">贪心概念</a></h2>
+<p>适用于最优化问题的算法往往包含一系列步骤，每一步都包含若干选择。贪心算法总是做出在当前看来是最好的选择。</p>
+<p>贪心算法的基本要素：</p>
+<p>（1）最优子结构性质：通过贪心选择可以将问题转移到子问题上，原始问题最优解=贪心选择+子问题的最优解</p>
+<p>（2）贪心选择性质：全局最优解可以通过局部最优选择得到</p>
+<h2 id="贪心法的设计"><a class="header" href="#贪心法的设计">贪心法的设计</a></h2>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost03/img/20240602124111.png" alt="" /></p>
+<p><strong>说实话贪心算法并没有固定的套路</strong>。</p>
+<p>所以唯一的难点就是如何通过局部最优，推出整体最优。</p>
+<p>那么如何能看出局部最优是否能推出整体最优呢？有没有什么固定策略或者套路呢？</p>
+<p><strong>不好意思，也没有！</strong> 靠自己手动模拟，如果模拟可行，就可以试一试贪心策略，如果不可行，可能需要动态规划。</p>
+<p>有同学问了如何验证可不可以用贪心算法呢？</p>
+<p><strong>最好用的策略就是举反例，如果想不到反例，那么就试一试贪心吧</strong>。</p>
+<h2 id="贪心一般解题步骤"><a class="header" href="#贪心一般解题步骤">贪心一般解题步骤</a></h2>
+<p>贪心算法一般分为如下四步：</p>
+<ul>
+<li>将问题分解为若干个子问题</li>
+<li>找出适合的贪心策略</li>
+<li>求解每一个子问题的最优解</li>
+<li>将局部最优解堆叠成全局最优解</li>
+</ul>
+<p>这个四步其实过于理论化了，我们平时在做贪心类的题目 很难去按照这四步去思考，真是有点“鸡肋”。</p>
+<p>做题的时候，只要想清楚 局部最优 是什么，如果推导出全局最优，其实就够了。</p>
+<h2 id="重要的贪心算法"><a class="header" href="#重要的贪心算法">重要的贪心算法</a></h2>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost03/img/20240602124146.png" alt="" /></p>
+<h3 id="硬币找零问题"><a class="header" href="#硬币找零问题">硬币找零问题</a></h3>
+<h3 id="活动安排问题"><a class="header" href="#活动安排问题">活动安排问题</a></h3>
+<h3 id="区间划分问题"><a class="header" href="#区间划分问题">区间划分问题</a></h3>
+<h3 id="分数背包问题"><a class="header" href="#分数背包问题">分数背包问题</a></h3>
+<h3 id="哈夫曼编码"><a class="header" href="#哈夫曼编码">哈夫曼编码</a></h3>
+<h3 id="单源最短路径"><a class="header" href="#单源最短路径">单源最短路径</a></h3>
+<h3 id="最小生成树"><a class="header" href="#最小生成树">最小生成树</a></h3>
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="回溯算法"><a class="header" href="#回溯算法">回溯算法</a></h1>
+<ul>
+<li><a href="%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95.html#%E6%A6%82%E8%AE%BA">概论</a></li>
+<li><a href="%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95.html#%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95%E7%9A%84%E8%AE%BE%E8%AE%A1">回溯算法的设计</a></li>
+<li><a href="%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95.html#%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95%E6%A8%A1%E6%9D%BF">回溯算法模板</a></li>
+<li><a href="%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95.html#%E8%A7%A3%E7%A9%BA%E9%97%B4%E6%A0%91">解空间树</a></li>
+<li><a href="%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95.html#%E5%89%AA%E6%9E%9Dpruning%E6%93%8D%E4%BD%9C">剪枝（Pruning）操作</a></li>
+<li><a href="%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95.html#%E5%9B%9E%E6%BA%AF%E6%B3%95%E7%9A%84%E5%85%B8%E5%9E%8B%E5%BA%94%E7%94%A8">回溯法的典型应用</a>
+<ul>
+<li><a href="%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95.html#%E9%9B%86%E8%A3%85%E7%AE%B1%E9%97%AE%E9%A2%98container-loading-problem">集装箱问题（Container Loading Problem）</a></li>
+<li><a href="%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95.html#%E5%AD%90%E9%9B%86%E5%92%8Csum-of-subsets">子集和（Sum of Subsets）</a></li>
+<li><a href="%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95.html#01-knapsack-problem">0/1 Knapsack Problem</a></li>
+<li><a href="%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95.html#%E6%A3%8B%E7%9B%98%E9%97%AE%E9%A2%98%E4%B9%8B-n-queens-problem">棋盘问题之 N-Queens Problem</a></li>
+<li><a href="%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95.html#%E6%A3%8B%E7%9B%98%E9%97%AE%E9%A2%98%E4%B9%8B%E8%A7%A3%E6%95%B0%E7%8B%AC">棋盘问题之解数独</a></li>
+<li><a href="%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95.html#%E7%BB%84%E5%90%88%E9%97%AE%E9%A2%98%E4%B9%8B%E5%88%87%E5%89%B2%E5%AD%90%E4%B8%B2">组合问题之切割子串</a></li>
+<li><a href="%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95.html#%E6%8E%92%E5%88%97%E9%97%AE%E9%A2%98%E4%B9%8B%E5%85%A8%E6%8E%92%E5%88%97">排列问题之全排列</a></li>
+<li><a href="%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95.html#%E6%9C%80%E5%A4%A7%E5%9B%A2%E9%97%AE%E9%A2%98">最大团问题</a></li>
+<li><a href="%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95.html#%E6%97%85%E8%A1%8C%E5%95%86%E9%97%AE%E9%A2%98">旅行商问题</a></li>
+<li><a href="%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95.html#%E5%9B%BE%E7%9A%84-m-%E7%9D%80%E8%89%B2%E9%97%AE%E9%A2%98">图的 m 着色问题</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="概论-1"><a class="header" href="#概论-1">概论</a></h2>
+<p><strong>回溯法（Backtracking）的思想：</strong> 能进则进，不进则换，不换则退。</p>
+<p>回溯法也可以叫做回溯搜索法，它是一种搜索的方式。</p>
+<p>回溯是递归的副产品，只要有递归就会有回溯。</p>
+<p><strong>因为回溯的本质是穷举，穷举所有可能，然后选出我们想要的答案</strong>，如果想让回溯法高效一些，可以加一些剪枝的操作，但也改不了回溯法就是穷举的本质。</p>
+<p><strong>回溯法解决的问题都可以抽象为树形结构</strong>，因为回溯法解决的都是在集合中递归查找子集，<strong>集合的大小就构成了树的宽度，递归的深度就构成了树的深度</strong>。</p>
+<p>递归就要有终止条件，所以必然是一棵高度有限的树（N叉树）。</p>
+<p><strong>回溯算法的框架：</strong></p>
+<p>以DFS的方式进行搜索，在搜索的过程中用剪枝条件（限界函数）避免无效搜索。约束函数，在扩展结点处剪去得不到可行解的子树；限界函数：在扩展结点处剪去得不到最优解的子树。</p>
+<p><strong>回溯算法求解问题的一般步骤：</strong></p>
+<p>1、 针对所给问题，定义问题的解空间，它至少包含问题的一个（最优）解。</p>
+<p>2 、确定易于搜索的解空间结构,使得能用回溯法方便地搜索整个解空间 。</p>
+<p>3 、以深度优先的方式搜索解空间，并且在搜索过程中用剪枝函数避免无效搜索。</p>
+<p>常用剪枝函数：</p>
+<p>用约束函数在扩展结点处剪去不满足约束的子树；</p>
+<p>用限界函数剪去得不到最优解的子树。</p>
+<p>回溯法，一般可以解决如下几种问题：</p>
+<ul>
+<li>组合问题：N个数里面按一定规则找出k个数的集合</li>
+<li>切割问题：一个字符串按一定规则有几种切割方式</li>
+<li>子集问题：一个N个数的集合里有多少符合条件的子集</li>
+<li>排列问题：N个数按一定规则全排列，有几种排列方式</li>
+<li>棋盘问题：N皇后，解数独等等</li>
+</ul>
+<h2 id="回溯算法的设计"><a class="header" href="#回溯算法的设计">回溯算法的设计</a></h2>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost03/img/20240602124212.png" alt="" /></p>
+<h2 id="回溯算法模板"><a class="header" href="#回溯算法模板">回溯算法模板</a></h2>
+<p>回溯算法模板框架如下：</p>
+<pre><code class="language-cpp">void backtracking(参数) {
+    if (终止条件) {
+        存放结果;
+        return;
+    }
+
+    for (选择：本层集合中元素（树中节点孩子的数量就是集合的大小）) {
+        处理节点;
+        backtracking(路径，选择列表); // 递归
+        回溯，撤销处理结果
+    }
+}
+</code></pre>
+<p>Although backtracking seems very efficient. The time complexity for this algorithm is O(n2^n).</p>
+<p>2^n is the time for searching the solution space.</p>
+<p>n is the time to store the best solution.</p>
+<h2 id="解空间树"><a class="header" href="#解空间树">解空间树</a></h2>
+<p><strong>子集树、满m叉树、排列树区别：</strong></p>
+<p>子集树：从n个元素的集合S中找到满足某种性质的子集时，相应的解空间树就成为了子集树（典型问题：01背包问题）</p>
+<p>满m叉树：所给问题中每一个元素均有m中选择，要求确定其中的一种选择，使得对这n个元素的选择结果组成的向量满足某种性质（经典问题：图的m着色问题）</p>
+<p>排列树：从n个元素的排列树中找出满足某种性质的一个排列的时候，相应的解空间树称为排列树（经典问题：TSP问题，n-queens 问题）</p>
+<h2 id="剪枝pruning操作"><a class="header" href="#剪枝pruning操作">剪枝（Pruning）操作</a></h2>
+<p>在回溯过程中，我们用一个约束函数<code>C(i)</code>（constraint function）和一个限界函数<code>B(i)</code>（bounding function）剪掉无效的分支，从而专注于搜索最有希望的分支。</p>
+<p>类似dfs在叶子节点收获结果，回溯算法可以通过剪枝（prune）提前中止向下搜索的过程。</p>
+<p>约束函数<code>C(i)</code>（constraint function）：检查当前解的可行性</p>
+<p>Constraint function is to check the feasibility of the current solution.</p>
+<p>限界函数<code>B(i)</code>（bounding function）</p>
+<p>Bounding function is for optimization problem.</p>
+<h2 id="回溯法的典型应用"><a class="header" href="#回溯法的典型应用">回溯法的典型应用</a></h2>
+<h3 id="集装箱问题container-loading-problem"><a class="header" href="#集装箱问题container-loading-problem">集装箱问题（Container Loading Problem）</a></h3>
+<p>Container Loading problem is to load as many containers as is possible without sinking the ship.</p>
+<h3 id="子集和sum-of-subsets"><a class="header" href="#子集和sum-of-subsets">子集和（Sum of Subsets）</a></h3>
+<h3 id="01-knapsack-problem"><a class="header" href="#01-knapsack-problem">0/1 Knapsack Problem</a></h3>
+<p>First, rank the item by their value per unit weight.</p>
+<h3 id="棋盘问题之-n-queens-problem"><a class="header" href="#棋盘问题之-n-queens-problem">棋盘问题之 N-Queens Problem</a></h3>
+<h3 id="棋盘问题之解数独"><a class="header" href="#棋盘问题之解数独">棋盘问题之解数独</a></h3>
+<h3 id="组合问题之切割子串"><a class="header" href="#组合问题之切割子串">组合问题之切割子串</a></h3>
+<h3 id="排列问题之全排列"><a class="header" href="#排列问题之全排列">排列问题之全排列</a></h3>
+<h3 id="最大团问题"><a class="header" href="#最大团问题">最大团问题</a></h3>
+<h3 id="旅行商问题"><a class="header" href="#旅行商问题">旅行商问题</a></h3>
+<h3 id="图的-m-着色问题"><a class="header" href="#图的-m-着色问题">图的 m 着色问题</a></h3>
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="分支限界法"><a class="header" href="#分支限界法">分支限界法</a></h1>
+<ul>
+<li><a href="%E5%88%86%E6%94%AF%E9%99%90%E7%95%8C%E6%B3%95.html#%E6%A6%82%E5%BF%B5">概念</a></li>
+<li><a href="%E5%88%86%E6%94%AF%E9%99%90%E7%95%8C%E6%B3%95.html#%E5%88%86%E6%94%AF%E9%99%90%E7%95%8C%E7%9A%84%E5%BA%94%E7%94%A8">分支限界的应用</a>
+<ul>
+<li><a href="%E5%88%86%E6%94%AF%E9%99%90%E7%95%8C%E6%B3%95.html#%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98">背包问题</a></li>
+<li><a href="%E5%88%86%E6%94%AF%E9%99%90%E7%95%8C%E6%B3%95.html#%E6%9C%80%E5%A4%A7%E5%9B%A2%E9%97%AE%E9%A2%98">最大团问题</a></li>
+<li><a href="%E5%88%86%E6%94%AF%E9%99%90%E7%95%8C%E6%B3%95.html#%E8%B4%A7%E9%83%8E%E9%97%AE%E9%A2%98">货郎问题</a></li>
+<li><a href="%E5%88%86%E6%94%AF%E9%99%90%E7%95%8C%E6%B3%95.html#%E5%9C%86%E6%8E%92%E5%88%97%E9%97%AE%E9%A2%98">圆排列问题</a></li>
+<li><a href="%E5%88%86%E6%94%AF%E9%99%90%E7%95%8C%E6%B3%95.html#%E8%BF%9E%E7%BB%AD%E9%82%AE%E8%B5%84%E9%97%AE%E9%A2%98">连续邮资问题</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="概念"><a class="header" href="#概念">概念</a></h2>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost03/img/20240602124301.png" alt="" /></p>
+<h2 id="分支限界的应用"><a class="header" href="#分支限界的应用">分支限界的应用</a></h2>
+<h3 id="背包问题"><a class="header" href="#背包问题">背包问题</a></h3>
+<h3 id="最大团问题-1"><a class="header" href="#最大团问题-1">最大团问题</a></h3>
+<h3 id="货郎问题"><a class="header" href="#货郎问题">货郎问题</a></h3>
+<h3 id="圆排列问题"><a class="header" href="#圆排列问题">圆排列问题</a></h3>
+<h3 id="连续邮资问题"><a class="header" href="#连续邮资问题">连续邮资问题</a></h3>
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="计算复杂性理论"><a class="header" href="#计算复杂性理论">计算复杂性理论</a></h1>
+<ul>
+<li><a href="%E8%AE%A1%E7%AE%97%E5%A4%8D%E6%9D%82%E6%80%A7%E7%90%86%E8%AE%BA.html#np-%E5%AE%8C%E5%85%A8%E6%80%A7%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE">NP 完全性思维导图</a></li>
+<li><a href="%E8%AE%A1%E7%AE%97%E5%A4%8D%E6%9D%82%E6%80%A7%E7%90%86%E8%AE%BA.html#p%E7%B1%BB%E4%B8%8Enp%E7%B1%BB">P类与NP类</a>
+<ul>
+<li><a href="%E8%AE%A1%E7%AE%97%E5%A4%8D%E6%9D%82%E6%80%A7%E7%90%86%E8%AE%BA.html#%E6%98%93%E8%A7%A3%E7%9A%84%E9%97%AE%E9%A2%98%E4%B8%8E%E9%9A%BE%E8%A7%A3%E7%9A%84%E9%97%AE%E9%A2%98">易解的问题与难解的问题</a></li>
+<li><a href="%E8%AE%A1%E7%AE%97%E5%A4%8D%E6%9D%82%E6%80%A7%E7%90%86%E8%AE%BA.html#%E5%88%A4%E5%AE%9A%E9%97%AE%E9%A2%98">判定问题</a></li>
+<li><a href="%E8%AE%A1%E7%AE%97%E5%A4%8D%E6%9D%82%E6%80%A7%E7%90%86%E8%AE%BA.html#np%E7%B1%BB">NP类</a></li>
+</ul>
+</li>
+<li><a href="%E8%AE%A1%E7%AE%97%E5%A4%8D%E6%9D%82%E6%80%A7%E7%90%86%E8%AE%BA.html#%E5%A4%9A%E9%A1%B9%E5%BC%8F%E6%97%B6%E9%97%B4%E5%8F%98%E6%8D%A2%E4%B8%8Enp%E5%AE%8C%E5%85%A8%E6%80%A7">多项式时间变换与NP完全性</a>
+<ul>
+<li><a href="%E8%AE%A1%E7%AE%97%E5%A4%8D%E6%9D%82%E6%80%A7%E7%90%86%E8%AE%BA.html#%E5%A4%9A%E9%A1%B9%E5%BC%8F%E6%97%B6%E9%97%B4%E5%8F%98%E6%8D%A2">多项式时间变换</a></li>
+<li><a href="%E8%AE%A1%E7%AE%97%E5%A4%8D%E6%9D%82%E6%80%A7%E7%90%86%E8%AE%BA.html#np%E5%AE%8C%E5%85%A8%E6%80%A7%E5%8F%8A%E5%85%B6%E6%80%A7%E8%B4%A8">NP完全性及其性质</a></li>
+<li><a href="%E8%AE%A1%E7%AE%97%E5%A4%8D%E6%9D%82%E6%80%A7%E7%90%86%E8%AE%BA.html#cook-levin%E5%AE%9A%E7%90%86%E7%AC%AC%E4%B8%AAnp%E5%AE%8C%E5%85%A8%E9%97%AE%E9%A2%98">Cook-Levin定理—第—个NP完全问题</a></li>
+</ul>
+</li>
+<li><a href="%E8%AE%A1%E7%AE%97%E5%A4%8D%E6%9D%82%E6%80%A7%E7%90%86%E8%AE%BA.html#%E5%87%A0%E4%B8%AAnp%E5%AE%8C%E5%85%A8%E9%97%AE%E9%A2%98">几个NP完全问题</a>
+<ul>
+<li><a href="%E8%AE%A1%E7%AE%97%E5%A4%8D%E6%9D%82%E6%80%A7%E7%90%86%E8%AE%BA.html#%E6%9C%80%E5%A4%A7%E5%8F%AF%E6%BB%A1%E8%B6%B3%E6%80%A7%E4%B8%8E%E4%BA%8C%E5%85%83%E5%8F%AF%E6%BB%A1%E8%B6%B3%E6%80%A7">最大可满足性与二元可满足性</a></li>
+<li><a href="%E8%AE%A1%E7%AE%97%E5%A4%8D%E6%9D%82%E6%80%A7%E7%90%86%E8%AE%BA.html#%E9%A1%B6%E7%82%B9%E8%A6%86%E7%9B%96%E5%9B%A2%E4%B8%8E%E7%8B%AC%E7%AB%8B%E9%9B%86">顶点覆盖、团与独立集</a></li>
+<li><a href="%E8%AE%A1%E7%AE%97%E5%A4%8D%E6%9D%82%E6%80%A7%E7%90%86%E8%AE%BA.html#%E5%93%88%E5%AF%86%E9%A1%BF%E5%9B%9E%E8%B7%AF%E4%B8%8E%E8%B4%A7%E9%83%8E%E9%97%AE%E9%A2%98">哈密顿回路与货郎问题</a></li>
+<li><a href="%E8%AE%A1%E7%AE%97%E5%A4%8D%E6%9D%82%E6%80%A7%E7%90%86%E8%AE%BA.html#%E6%81%B0%E5%A5%BD%E8%A6%86%E7%9B%96">恰好覆盖</a></li>
+<li><a href="%E8%AE%A1%E7%AE%97%E5%A4%8D%E6%9D%82%E6%80%A7%E7%90%86%E8%AE%BA.html#%E5%AD%90%E9%9B%86%E5%92%8C%E8%83%8C%E5%8C%85%E8%A3%85%E7%AE%B1%E4%B8%8E%E5%8F%8C%E6%9C%BA%E8%B0%83%E5%BA%A6">子集和、背包、装箱与双机调度</a></li>
+<li><a href="%E8%AE%A1%E7%AE%97%E5%A4%8D%E6%9D%82%E6%80%A7%E7%90%86%E8%AE%BA.html#%E6%95%B4%E6%95%B0%E7%BA%BF%E6%80%A7%E8%A7%84%E5%88%92">整数线性规划</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="np-完全性思维导图"><a class="header" href="#np-完全性思维导图">NP 完全性思维导图</a></h2>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost03/img/20240602124403.png" alt="" /></p>
+<h2 id="p类与np类"><a class="header" href="#p类与np类">P类与NP类</a></h2>
+<h3 id="易解的问题与难解的问题"><a class="header" href="#易解的问题与难解的问题">易解的问题与难解的问题</a></h3>
+<h3 id="判定问题"><a class="header" href="#判定问题">判定问题</a></h3>
+<h3 id="np类"><a class="header" href="#np类">NP类</a></h3>
+<h2 id="多项式时间变换与np完全性"><a class="header" href="#多项式时间变换与np完全性">多项式时间变换与NP完全性</a></h2>
+<h3 id="多项式时间变换"><a class="header" href="#多项式时间变换">多项式时间变换</a></h3>
+<h3 id="np完全性及其性质"><a class="header" href="#np完全性及其性质">NP完全性及其性质</a></h3>
+<h3 id="cook-levin定理第个np完全问题"><a class="header" href="#cook-levin定理第个np完全问题">Cook-Levin定理—第—个NP完全问题</a></h3>
+<h2 id="几个np完全问题"><a class="header" href="#几个np完全问题">几个NP完全问题</a></h2>
+<h3 id="最大可满足性与二元可满足性"><a class="header" href="#最大可满足性与二元可满足性">最大可满足性与二元可满足性</a></h3>
+<h3 id="顶点覆盖团与独立集"><a class="header" href="#顶点覆盖团与独立集">顶点覆盖、团与独立集</a></h3>
+<h3 id="哈密顿回路与货郎问题"><a class="header" href="#哈密顿回路与货郎问题">哈密顿回路与货郎问题</a></h3>
+<h3 id="恰好覆盖"><a class="header" href="#恰好覆盖">恰好覆盖</a></h3>
+<h3 id="子集和背包装箱与双机调度"><a class="header" href="#子集和背包装箱与双机调度">子集和、背包、装箱与双机调度</a></h3>
+<h3 id="整数线性规划"><a class="header" href="#整数线性规划">整数线性规划</a></h3>
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="近似算法"><a class="header" href="#近似算法">近似算法</a></h1>
+<ul>
+<li><a href="%E8%BF%91%E4%BC%BC%E7%AE%97%E6%B3%95.html#%E8%BF%91%E4%BC%BC%E7%AE%97%E6%B3%95%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE">近似算法思维导图</a></li>
+<li><a href="%E8%BF%91%E4%BC%BC%E7%AE%97%E6%B3%95.html#%E8%BF%91%E4%BC%BC%E7%AE%97%E6%B3%95%E5%8F%8A%E5%85%B6%E8%BF%91%E4%BC%BC%E6%AF%94">近似算法及其近似比</a></li>
+<li><a href="%E8%BF%91%E4%BC%BC%E7%AE%97%E6%B3%95.html#%E5%A4%9A%E6%9C%BA%E8%B0%83%E5%BA%A6%E9%97%AE%E9%A2%98">多机调度问题</a></li>
+<li><a href="%E8%BF%91%E4%BC%BC%E7%AE%97%E6%B3%95.html#%E8%B4%A7%E9%83%8E%E9%97%AE%E9%A2%98">货郎问题</a>
+<ul>
+<li><a href="%E8%BF%91%E4%BC%BC%E7%AE%97%E6%B3%95.html#%E6%9C%80%E9%82%BB%E8%BF%91%E6%B3%95">最邻近法</a></li>
+<li><a href="%E8%BF%91%E4%BC%BC%E7%AE%97%E6%B3%95.html#%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91%E6%B3%95">最小生成树法</a></li>
+<li><a href="%E8%BF%91%E4%BC%BC%E7%AE%97%E6%B3%95.html#%E6%9C%80%E5%B0%8F%E6%9D%83%E5%8C%B9%E9%85%8D%E6%B3%95">最小权匹配法</a></li>
+</ul>
+</li>
+<li><a href="%E8%BF%91%E4%BC%BC%E7%AE%97%E6%B3%95.html#%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98">背包问题</a>
+<ul>
+<li><a href="%E8%BF%91%E4%BC%BC%E7%AE%97%E6%B3%95.html#%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95">一个简单的贪心算法</a></li>
+<li><a href="%E8%BF%91%E4%BC%BC%E7%AE%97%E6%B3%95.html#%E5%A4%9A%E9%A1%B9%E5%BC%8F%E6%97%B6%E9%97%B4%E8%BF%91%E4%BC%BC%E6%96%B9%E6%A1%88">多项式时间近似方案</a></li>
+<li><a href="%E8%BF%91%E4%BC%BC%E7%AE%97%E6%B3%95.html#%E4%BC%AA%E5%A4%9A%E9%A1%B9%E5%BC%8F%E6%97%B6%E9%97%B4%E7%AE%97%E6%B3%95%E4%B8%8E%E5%AE%8C%E5%85%A8%E5%A4%9A%E9%A1%B9%E5%BC%8F%E6%97%B6%E9%97%B4%E8%BF%91%E4%BC%BC%E6%96%B9%E6%A1%88">伪多项式时间算法与完全多项式时间近似方案</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="近似算法思维导图"><a class="header" href="#近似算法思维导图">近似算法思维导图</a></h2>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost03/img/20240602124433.png" alt="" /></p>
+<h2 id="近似算法及其近似比"><a class="header" href="#近似算法及其近似比">近似算法及其近似比</a></h2>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost03/img/20240702162255.png" alt="" /></p>
+<h2 id="多机调度问题"><a class="header" href="#多机调度问题">多机调度问题</a></h2>
+<h2 id="货郎问题-1"><a class="header" href="#货郎问题-1">货郎问题</a></h2>
+<h3 id="最邻近法"><a class="header" href="#最邻近法">最邻近法</a></h3>
+<h3 id="最小生成树法"><a class="header" href="#最小生成树法">最小生成树法</a></h3>
+<h3 id="最小权匹配法"><a class="header" href="#最小权匹配法">最小权匹配法</a></h3>
+<h2 id="背包问题-1"><a class="header" href="#背包问题-1">背包问题</a></h2>
+<h3 id="一个简单的贪心算法"><a class="header" href="#一个简单的贪心算法">一个简单的贪心算法</a></h3>
+<h3 id="多项式时间近似方案"><a class="header" href="#多项式时间近似方案">多项式时间近似方案</a></h3>
+<h3 id="伪多项式时间算法与完全多项式时间近似方案"><a class="header" href="#伪多项式时间算法与完全多项式时间近似方案">伪多项式时间算法与完全多项式时间近似方案</a></h3>
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="随机算法"><a class="header" href="#随机算法">随机算法</a></h1>
+<ul>
+<li><a href="%E9%9A%8F%E6%9C%BA%E7%AE%97%E6%B3%95.html#%E9%9A%8F%E6%9C%BA%E7%AE%97%E6%B3%95%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE">随机算法思维导图</a></li>
+<li><a href="%E9%9A%8F%E6%9C%BA%E7%AE%97%E6%B3%95.html#%E9%9A%8F%E6%9C%BA%E7%AE%97%E6%B3%95%E7%9A%84%E5%88%86%E7%B1%BB%E5%8F%8A%E5%85%B6%E5%B1%80%E9%99%90%E6%80%A7">随机算法的分类及其局限性</a>
+<ul>
+<li><a href="%E9%9A%8F%E6%9C%BA%E7%AE%97%E6%B3%95.html#las-vegas-%E5%9E%8B%E9%9A%8F%E6%9C%BA%E7%AE%97%E6%B3%95">Las Vegas 型随机算法</a></li>
+<li><a href="%E9%9A%8F%E6%9C%BA%E7%AE%97%E6%B3%95.html#monte-carlo-%E5%9E%8B%E9%9A%8F%E6%9C%BA%E7%AE%97%E6%B3%95">Monte-Carlo 型随机算法</a></li>
+<li><a href="%E9%9A%8F%E6%9C%BA%E7%AE%97%E6%B3%95.html#%E9%9A%8F%E6%9C%BA%E7%AE%97%E6%B3%95%E7%9A%84%E5%B1%80%E9%99%90%E6%80%A7">随机算法的局限性</a></li>
+</ul>
+</li>
+<li><a href="%E9%9A%8F%E6%9C%BA%E7%AE%97%E6%B3%95.html#%E9%9A%8F%E6%9C%BA%E7%AE%97%E6%B3%95%E5%8F%8A%E5%BA%94%E7%94%A8">随机算法及应用</a>
+<ul>
+<li><a href="%E9%9A%8F%E6%9C%BA%E7%AE%97%E6%B3%95.html#%E9%9A%8F%E6%9C%BA%E6%95%B0">随机数</a></li>
+<li><a href="%E9%9A%8F%E6%9C%BA%E7%AE%97%E6%B3%95.html#%E6%95%B0%E5%80%BC%E9%9A%8F%E6%9C%BA%E5%8C%96%E7%AE%97%E6%B3%95">数值随机化算法</a></li>
+<li><a href="%E9%9A%8F%E6%9C%BA%E7%AE%97%E6%B3%95.html#%E8%88%8D%E4%BC%8D%E5%BE%B7%E7%AE%97%E6%B3%95">舍伍德算法</a></li>
+<li><a href="%E9%9A%8F%E6%9C%BA%E7%AE%97%E6%B3%95.html#%E6%8B%89%E6%96%AF%E7%BB%B4%E5%8A%A0%E6%96%AF%E7%AE%97%E6%B3%95%E4%B9%8B%E7%BB%93%E5%90%88%E5%9B%9E%E6%BA%AF%E6%B3%95%E8%A7%A3%E5%86%B3-n-queen-%E9%97%AE%E9%A2%98">拉斯维加斯算法之结合回溯法解决 n-queen 问题</a></li>
+<li><a href="%E9%9A%8F%E6%9C%BA%E7%AE%97%E6%B3%95.html#%E6%8B%89%E6%96%AF%E7%BB%B4%E5%8A%A0%E6%96%AF%E7%AE%97%E6%B3%95%E4%B9%8B%E6%95%B4%E6%95%B0%E5%9B%A0%E5%AD%90%E5%88%86%E8%A7%A3">拉斯维加斯算法之整数因子分解</a></li>
+<li><a href="%E9%9A%8F%E6%9C%BA%E7%AE%97%E6%B3%95.html#%E8%92%99%E7%89%B9%E5%8D%A1%E7%BD%97%E7%AE%97%E6%B3%95%E4%B9%8B%E5%AF%BB%E6%89%BE%E4%B8%BB%E5%85%83%E7%B4%A0">蒙特卡罗算法之寻找主元素</a></li>
+<li><a href="%E9%9A%8F%E6%9C%BA%E7%AE%97%E6%B3%95.html#%E8%92%99%E7%89%B9%E5%8D%A1%E7%BD%97%E7%AE%97%E6%B3%95%E4%B9%8B%E6%89%BE%E7%B4%A0%E6%95%B0">蒙特卡罗算法之找素数</a></li>
+</ul>
+</li>
+<li><a href="%E9%9A%8F%E6%9C%BA%E7%AE%97%E6%B3%95.html#%E7%B4%A0%E6%95%B0%E6%A3%80%E9%AA%8C%E5%92%8C%E5%A4%9A%E9%A1%B9%E5%BC%8F%E6%81%92%E7%AD%89%E6%A3%80%E9%AA%8C">素数检验和多项式恒等检验</a>
+<ul>
+<li><a href="%E9%9A%8F%E6%9C%BA%E7%AE%97%E6%B3%95.html#%E7%B4%A0%E6%95%B0%E6%A3%80%E9%AA%8C">素数检验</a></li>
+<li><a href="%E9%9A%8F%E6%9C%BA%E7%AE%97%E6%B3%95.html#%E5%A4%9A%E9%A1%B9%E5%BC%8F%E6%81%92%E7%AD%89%E6%A3%80%E9%AA%8C">多项式恒等检验</a></li>
+</ul>
+</li>
+<li><a href="%E9%9A%8F%E6%9C%BA%E7%AE%97%E6%B3%95.html#%E9%9A%8F%E6%9C%BA%E6%B8%B8%E5%8A%A8%E7%AE%97%E6%B3%95">随机游动算法</a>
+<ul>
+<li><a href="%E9%9A%8F%E6%9C%BA%E7%AE%97%E6%B3%95.html#%E6%9C%89%E9%99%90%E9%A9%AC%E6%B0%8F%E9%93%BE%E5%8F%8A%E5%85%B6%E8%A1%A8%E7%A4%BA">有限马氏链及其表示</a></li>
+<li><a href="%E9%9A%8F%E6%9C%BA%E7%AE%97%E6%B3%95.html#%E6%B1%82%E8%A7%A3%E4%BA%8C%E5%85%83%E5%B8%83%E5%B0%94%E5%8F%AF%E6%BB%A1%E8%B6%B3%E6%80%A7%E9%97%AE%E9%A2%98%E7%9A%84%E9%9A%8F%E6%9C%BA%E6%B8%B8%E5%8A%A8%E7%AE%97%E6%B3%95">求解二元布尔可满足性问题的随机游动算法</a></li>
+</ul>
+</li>
+<li><a href="%E9%9A%8F%E6%9C%BA%E7%AE%97%E6%B3%95.html#%E4%B8%B2%E7%9B%B8%E7%AD%89">串相等</a></li>
+</ul>
+<h2 id="随机算法思维导图"><a class="header" href="#随机算法思维导图">随机算法思维导图</a></h2>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost03/img/20240602124345.png" alt="" /></p>
+<h2 id="随机算法的分类及其局限性"><a class="header" href="#随机算法的分类及其局限性">随机算法的分类及其局限性</a></h2>
+<p>本节介绍随机算法的分类，包括拉斯维加斯型和蒙特卡洛型这两大类，并且从计算复杂度理论的角度，介绍NP完全问题不太可能有多项式时间随机算法的结论。</p>
+<h3 id="las-vegas-型随机算法"><a class="header" href="#las-vegas-型随机算法">Las Vegas 型随机算法</a></h3>
+<p>随机快速排序算法、随机选择算法都是典型的拉斯维加斯型随机算法，这种算法总是给出正确的结果，但有时运行时间长些，有时运行时间短些.对于拉斯维加斯型算法，通常需要分析算法的平均运行时间。例如，随机快速排序算法总是给出已经排序的数组，期望的运行时间则是2nlogn。拉斯维加斯型随机算法的运行时间本身是一个随机变量，把期望运行时间是输入规模的多项式且总是给出正确答案的随机算法称为有效的拉斯维加斯型算法.随机快速排序算法就是一个有效的拉斯维加斯型算法。</p>
+<h3 id="monte-carlo-型随机算法"><a class="header" href="#monte-carlo-型随机算法">Monte-Carlo 型随机算法</a></h3>
+<p>蒙特卡洛型随机算法有时会给出错误的答案，后面两节将要介绍的素数检验、多项式恒等检验的随机算法和布尔可满足性问题的随机游动算法都是这类算法的例子。对于蒙特卡洛型算法，通常需要分析算法的出错概率，蒙特卡洛型算法不但运行时间是随机变量，而且计算的结果也是随机事件.把总是在多项式时间内运行且出错概率不超过1/3的随机算法称为有效的蒙特卡洛型算法。这里的出错概率1/3可以变得任意小，只要让算法执行足够多次，从所有单次结果中选择出现次数最多的结果作为总的结果即可。1/3这个值本身也不重要，只需要独立重复执行多次，就可以把错误概率降到1/3以下，甚至降低到输入规模的多项式倒数或者更低.。</p>
+<p>蒙特卡洛型算法又可分为单侧错误和双侧错误两类，单侧错误又可分为弃真型和取伪型这两种.所谓弃真型错误，就是在求解一个判定问题时把本应接受的输人误判为拒绝。对于弃真型的单侧错误随机算法来说，当算法宣布接受时，结果一定是对的；而当算法宣布拒绝时，结果有可能是错的。所谓取伪型错误，就是把本应拒绝的输入误判为接受。对于取伪型的单侧错误随机算法来说，当算法宣布拒绝时，结果一定是对的；而当算法宣布接受时，结果有可能是错的。单侧错误的蒙特卡洛型算法在所有输入上，要么只犯弃真的错误，要么只犯取伪的错误，不同时出现这两种不同的错误。双侧错误的蒙特卡洛型算法在所有输入上，可以同时出现这两种不同的错误。后面将要介绍的随机游动算法就是弃真型的单侧错误的蒙特卡洛型随机算法。</p>
+<p>MonteCarlo 算法</p>
+<p>一些问题，不论采用确定性算法或概率算法都无法保证每次都能得到正确的解答。</p>
+<p>蒙特卡罗算法则在一般情况下可以保证对问题的所有实例都以高概率给出正确解，但是通常无法判定一个具体解是否正确。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost03/img/20240614100324.png" alt="" /></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost03/img/20240614100452.png" alt="" /></p>
+<h3 id="随机算法的局限性"><a class="header" href="#随机算法的局限性">随机算法的局限性</a></h3>
+<p>在计算复杂性理论中，有效的拉斯维加斯型算法也称为ZPP类（zero-error probabilistic polynomial time）算法，即零错误概率多项式时间随机算法。有效的蒙特卡洛型算法也被为BPP类（bounded-error probabilistic polynomial time）算法，即错误概率有界的多项式时间随机算法，其中有效的弃真型单侧错误随机算法又称为RP类算法，有效的取伪型单侧错误随机算法则称为coRP类算法。把ZPP类算法可以求解的判定问题类记作ZPP类，类似地可以定义BPP、RP、coRP等判定问题类.有效的拉斯维加斯型算法是有效的蒙特卡洛型算法的特殊情况，可以证明上述复杂性类满足</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost03/img/20240702164510.png" alt="" /></p>
+<h2 id="随机算法及应用"><a class="header" href="#随机算法及应用">随机算法及应用</a></h2>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost03/img/20240614101656.png" alt="" /></p>
+<h3 id="随机数"><a class="header" href="#随机数">随机数</a></h3>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost03/img/20240614091056.png" alt="" /></p>
+<h3 id="数值随机化算法"><a class="header" href="#数值随机化算法">数值随机化算法</a></h3>
+<p>计算Pi值、定积分的值、解非线性方程组</p>
+<p>解非线性方程组可以用粒子群算法或模拟退火算法（这两种算法也属于数值随机化算法）</p>
+<h3 id="舍伍德算法"><a class="header" href="#舍伍德算法">舍伍德算法</a></h3>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost03/img/20240614092747.png" alt="" /></p>
+<p>回忆学过的舍伍德算法：</p>
+<p>（1）线性时间选择算法</p>
+<p>（2）快速排序算法</p>
+<p>当在数据基本有序情况下，partition</p>
+<p>（）算法的两个分组严重不平衡，导致这两个算法的时间复杂性都是O(n²)</p>
+<p>改造的方法将<code>partition()</code>算法改为<code>randomizedpartition()</code>算法</p>
+<p>当无法直接改造成舍伍德型算法时，可借助于随机预处理技术(洗牌算法)</p>
+<pre><code class="language-c">void Shuffle(Type a[], int n)
+{   //随机洗牌算法
+	staticRandomNumber rnd;
+	for (int i=0;i&lt;n;i++) {
+		int j=rnd.Random(n-i)+i;
+		Swap(a[il, a[j]); 
+	}
+}
+</code></pre>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost03/img/20240614092530.png" alt="" /></p>
+<p>在动态变化中维持跳跃表中附加指针的平衡性：随机化策略</p>
+<h3 id="拉斯维加斯算法之结合回溯法解决-n-queen-问题"><a class="header" href="#拉斯维加斯算法之结合回溯法解决-n-queen-问题">拉斯维加斯算法之结合回溯法解决 n-queen 问题</a></h3>
+<h3 id="拉斯维加斯算法之整数因子分解"><a class="header" href="#拉斯维加斯算法之整数因子分解">拉斯维加斯算法之整数因子分解</a></h3>
+<h3 id="蒙特卡罗算法之寻找主元素"><a class="header" href="#蒙特卡罗算法之寻找主元素">蒙特卡罗算法之寻找主元素</a></h3>
+<p>确定性算法：分治</p>
+<h3 id="蒙特卡罗算法之找素数"><a class="header" href="#蒙特卡罗算法之找素数">蒙特卡罗算法之找素数</a></h3>
+<p><img src="https://cdn.jsdelivr.net/gh/Rosefinch-Midsummer/MyImagesHost03/img/20240614122317.png" alt="" /></p>
+<h2 id="素数检验和多项式恒等检验"><a class="header" href="#素数检验和多项式恒等检验">素数检验和多项式恒等检验</a></h2>
+<h3 id="素数检验"><a class="header" href="#素数检验">素数检验</a></h3>
+<h3 id="多项式恒等检验"><a class="header" href="#多项式恒等检验">多项式恒等检验</a></h3>
+<h2 id="随机游动算法"><a class="header" href="#随机游动算法">随机游动算法</a></h2>
+<h3 id="有限马氏链及其表示"><a class="header" href="#有限马氏链及其表示">有限马氏链及其表示</a></h3>
+<h3 id="求解二元布尔可满足性问题的随机游动算法"><a class="header" href="#求解二元布尔可满足性问题的随机游动算法">求解二元布尔可满足性问题的随机游动算法</a></h3>
+<h2 id="串相等"><a class="header" href="#串相等">串相等</a></h2>
 
                     </main>
 
